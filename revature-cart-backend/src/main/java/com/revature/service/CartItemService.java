@@ -35,4 +35,11 @@ public interface CartItemService {
 	 * @param id the id of the item to be updated
 	 */
 	public void updateCartItemById(int id);
+	
+	/**
+	 * Marks implementation
+	 * @param item
+	 * @return
+	 */
+	public CartItem updateCartItem(CartItem item);
 }
