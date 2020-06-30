@@ -1,6 +1,7 @@
 package com.revature.cart.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,10 @@ public class DevController {
 	// it creates mock data for the h2 database since we currently do not have an RDS.
 	@GetMapping("/devInit")
 	private ArrayList<Cart> h2Init() {
+		List<Cart> cartList = csc.getCartsByUserId(2021);
+		for (Cart cart : cartList) {
+			csc.deleteCartById(cart.getCartId());
+		}
 		Cart c1 = new Cart();
 		Cart c2 = new Cart();
 		Cart c3 = new Cart();
